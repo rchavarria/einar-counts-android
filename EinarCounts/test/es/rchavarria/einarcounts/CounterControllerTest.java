@@ -1,25 +1,27 @@
 package es.rchavarria.einarcounts;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
+import static org.mockito.Mockito.*;
 
 import es.rchavarria.einarcounts.core.Counter;
 
 public class CounterControllerTest {
 
 	private CounterController controller;
+	private Counter mockCounter;
 
 	@Before
 	public void setUp() {
-		Counter c = new Counter(10);
-		controller = new CounterController(c);
+		mockCounter = mock(Counter.class);
+		controller = new CounterController(mockCounter);
 	}
 	
 	@Test
-	public void firstCallToNextStepReturns1() {
-		assertEquals(controller.nextStep(), "1");
+	public void nextStepCallsCounterIncrementCountOnlyOnce() {
+		controller.nextStep();
+		
+		verify(mockCounter, times(1)).incrementCount();
 	}
 
 }
