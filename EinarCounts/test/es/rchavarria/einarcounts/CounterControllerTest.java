@@ -5,16 +5,20 @@ import org.junit.Test;
 import static org.mockito.Mockito.*;
 
 import es.rchavarria.einarcounts.core.Counter;
+import es.rchavarria.einarcounts.core.EinarVoices;
 
 public class CounterControllerTest {
 
 	private CounterController controller;
 	private Counter mockCounter;
+	private EinarVoices mockVoices;
 
 	@Before
 	public void setUp() {
 		mockCounter = mock(Counter.class);
-		controller = new CounterController(mockCounter);
+		mockVoices = mock(EinarVoices.class)
+				;
+		controller = new CounterController(mockCounter, mockVoices);
 	}
 	
 	@Test
