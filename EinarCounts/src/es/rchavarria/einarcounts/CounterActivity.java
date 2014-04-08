@@ -4,17 +4,26 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import es.rchavarria.einarcounts.core.Counter;
 
 public class CounterActivity extends Activity {
 
-	private CounterController controller = new CounterController();
+	private CounterController controller;
+	
+	private void configureController() {
+		Counter counter = new Counter(10);
+		controller = new CounterController(counter);
+	}
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		configureController();
+		
 		setContentView(R.layout.activity_counter);
 	}
-	
+
 	public void counterTouched(View v) {
 		TextView txt = (TextView) findViewById(R.id.txtCounter);
 		

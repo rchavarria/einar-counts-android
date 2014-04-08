@@ -6,8 +6,8 @@ public class CounterController {
 
 	private Counter counter;
 
-	public CounterController() {
-		counter = new Counter(10);
+	public CounterController(Counter counter) {
+		this.counter = counter;
 	}
 	
 	public String nextStep() {

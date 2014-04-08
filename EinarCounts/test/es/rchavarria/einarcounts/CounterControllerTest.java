@@ -5,13 +5,16 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.rchavarria.einarcounts.core.Counter;
+
 public class CounterControllerTest {
 
 	private CounterController controller;
 
 	@Before
 	public void setUp() {
-		controller = new CounterController();
+		Counter c = new Counter(10);
+		controller = new CounterController(c);
 	}
 	
 	@Test
