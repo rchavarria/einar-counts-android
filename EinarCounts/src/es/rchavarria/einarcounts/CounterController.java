@@ -14,6 +14,9 @@ public class CounterController {
 	}
 	
 	public String nextStep() {
-		return counter.incrementCount();
+		String currentCounter = counter.incrementCount();
+		voices.play(currentCounter);
+		
+		return currentCounter;
 	}
 }

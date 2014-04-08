@@ -27,5 +27,12 @@ public class CounterControllerTest {
 		
 		verify(mockCounter, times(1)).incrementCount();
 	}
+	
+	@Test
+	public void nextStepCallsEinarVoicesPlayOnlyOnce() {
+		controller.nextStep();
+		
+		verify(mockVoices, times(1)).play(anyString());
+	}
 
 }
