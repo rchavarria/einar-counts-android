@@ -1,14 +1,14 @@
 package es.rchavarria.einarcounts;
 
 import es.rchavarria.einarcounts.core.Counter;
-import es.rchavarria.einarcounts.core.EinarVoices;
+import es.rchavarria.einarcounts.core.Voices;
 
 public class CounterController {
 
 	private Counter counter;
-	private EinarVoices voices;
+	private Voices voices;
 
-	public CounterController(Counter counter, EinarVoices voices) {
+	public CounterController(Counter counter, Voices voices) {
 		this.counter = counter;
 		this.voices = voices;
 	}

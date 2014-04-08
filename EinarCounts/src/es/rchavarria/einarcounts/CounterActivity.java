@@ -1,6 +1,7 @@
 package es.rchavarria.einarcounts;
 
 import android.app.Activity;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -13,7 +14,7 @@ public class CounterActivity extends Activity {
 	
 	private void configureController() {
 		Counter counter = new Counter(10);
-		EinarVoices voices = new EinarVoices();
+		EinarVoices voices = new EinarVoices(this);
 		
 		controller = new CounterController(counter, voices);
 	}

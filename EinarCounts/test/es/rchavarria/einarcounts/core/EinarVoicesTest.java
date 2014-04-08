@@ -9,7 +9,7 @@ public class EinarVoicesTest {
 	
 	@Before
 	public void setUp() {
-		voices = new EinarVoices();
+		voices = new EinarVoices(null);
 	}
 	
 	@Test(expected=IllegalArgumentException.class)

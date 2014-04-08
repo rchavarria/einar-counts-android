@@ -1,23 +1,27 @@
 package es.rchavarria.einarcounts;
 
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
 import org.junit.Before;
 import org.junit.Test;
-import static org.mockito.Mockito.*;
 
 import es.rchavarria.einarcounts.core.Counter;
-import es.rchavarria.einarcounts.core.EinarVoices;
+import es.rchavarria.einarcounts.core.Voices;
 
 public class CounterControllerTest {
 
 	private CounterController controller;
 	private Counter mockCounter;
-	private EinarVoices mockVoices;
+	private Voices mockVoices;
 
 	@Before
 	public void setUp() {
 		mockCounter = mock(Counter.class);
-		mockVoices = mock(EinarVoices.class)
-				;
+		mockVoices = mock(Voices.class);
+		
 		controller = new CounterController(mockCounter, mockVoices);
 	}
 	
