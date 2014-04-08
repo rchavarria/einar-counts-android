@@ -7,7 +7,7 @@ public class CounterController {
 	private Counter counter;
 
 	public CounterController() {
-		counter = new Counter();
+		counter = new Counter(10);
 	}
 	
 	public String nextStep() {

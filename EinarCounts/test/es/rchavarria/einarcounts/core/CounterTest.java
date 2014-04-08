@@ -11,7 +11,7 @@ public class CounterTest {
 
 	@Before
 	public void setUp() {
-		controller = new Counter();
+		controller = new Counter(10);
 	}
 	
 	@Test
