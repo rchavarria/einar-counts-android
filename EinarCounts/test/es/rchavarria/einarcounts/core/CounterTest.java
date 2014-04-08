@@ -1,17 +1,17 @@
-package es.rchavarria.einarcounts;
+package es.rchavarria.einarcounts.core;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class CounterControllerTest {
+public class CounterTest {
 
-	private CounterController controller;
+	private Counter controller;
 
 	@Before
 	public void setUp() {
-		controller = new CounterController();
+		controller = new Counter();
 	}
 	
 	@Test
@@ -79,5 +79,4 @@ public class CounterControllerTest {
 		
 		assertEquals(upTo, controller.incrementCount());
 	}
-
 }
