@@ -1,18 +1,16 @@
 package es.rchavarria.einarcounts;
 
+import es.rchavarria.einarcounts.core.Counter;
+
 public class CounterController {
 
-	private int counter = 0;
-	
-	public String incrementCount() {
-		counter++;
-		
-		if(counter > 10) {
-			counter = 0;
-			return "#";
-		}
-		
-		return Integer.valueOf(counter).toString();
-	}
+	private Counter counter;
 
+	public CounterController() {
+		counter = new Counter();
+	}
+	
+	public String nextStep() {
+		return counter.incrementCount();
+	}
 }
