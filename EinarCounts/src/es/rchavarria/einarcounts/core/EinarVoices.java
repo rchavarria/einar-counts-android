@@ -3,17 +3,15 @@ package es.rchavarria.einarcounts.core;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.content.Context;
-import android.media.MediaPlayer;
 import es.rchavarria.einarcounts.R;
 
-public class EinarVoices implements Voices {
+public class EinarVoices {
 
-	private Context context;
+	private VoicePlayer player;
 	private List<Integer> longVoices;
 
-	public EinarVoices(Context context) {
-		this.context = context;
+	public EinarVoices(VoicePlayer player) {
+		this.player = player;
 		
 		longVoices = new ArrayList<Integer>(10);
 		longVoices.add(R.raw.one_long);
@@ -28,7 +26,6 @@ public class EinarVoices implements Voices {
 		longVoices.add(R.raw.ten_long);
 	}
 
-	@Override
 	public void play(String voiceIdentifier) {
 		if(voiceIdentifier == null || voiceIdentifier.length() == 0) {
 			throw new IllegalArgumentException("Can not play voice with identifier: " + voiceIdentifier);
@@ -39,8 +36,7 @@ public class EinarVoices implements Voices {
 			voiceResource = R.raw.error;
 		}
 		
-		MediaPlayer player = MediaPlayer.create(this.context, voiceResource);
-		player.start();
+		player.play(voiceResource);
 	}
 
 	private int getVoiceResource(String voiceIdentifier) {

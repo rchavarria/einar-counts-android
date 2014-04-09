@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 import es.rchavarria.einarcounts.core.Counter;
 import es.rchavarria.einarcounts.core.EinarVoices;
+import es.rchavarria.einarcounts.core.SimpleVoicePlayer;
 
 public class CounterActivity extends Activity {
 
@@ -13,7 +14,8 @@ public class CounterActivity extends Activity {
 	
 	private void configureController() {
 		Counter counter = new Counter(10);
-		EinarVoices voices = new EinarVoices(this);
+		SimpleVoicePlayer player = new SimpleVoicePlayer(this);
+		EinarVoices voices = new EinarVoices(player);
 		
 		controller = new CounterController(counter, voices);
 	}
