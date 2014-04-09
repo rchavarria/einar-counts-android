@@ -11,5 +11,8 @@ Tasks
 	- getVoiceResource chooses voices from different lists (long, short, clear, ...)
 	- getVoiceResource changes voice style each time it gets an error
 	- ¿?
-		
+	
+- Manage sounds with SoundPool, or SoundManager, or something like that. Stop managing sounds with MediaPlayer.
+	- I remember there is something to manage a list of sounds
+	
 - more?
