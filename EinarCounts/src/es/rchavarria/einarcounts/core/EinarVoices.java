@@ -8,14 +8,17 @@ import es.rchavarria.einarcounts.R;
 public class EinarVoices {
 
 	private VoicePlayer player;
-	private List<Integer> longVoices;
-	private List<Integer> clearVoices;
-	private List<Integer> shortVoices;
+	private int currentVoiceStyle;
+	private List<List<Integer>> voiceStyles;
 
 	public EinarVoices(VoicePlayer player) {
 		this.player = player;
-		
-		longVoices = new ArrayList<Integer>(10);
+		currentVoiceStyle = 0;
+		voiceStyles = initVoiceStyles();
+	}
+
+	private List<List<Integer>> initVoiceStyles() {
+		List<Integer> longVoices = new ArrayList<Integer>(10);
 		longVoices.add(R.raw.one_long);
 		longVoices.add(R.raw.two_long);
 		longVoices.add(R.raw.three_long);
@@ -27,7 +30,7 @@ public class EinarVoices {
 		longVoices.add(R.raw.nine_long);
 		longVoices.add(R.raw.ten_long);
 		
-		clearVoices = new ArrayList<Integer>(10);
+		List<Integer> clearVoices = new ArrayList<Integer>(10);
 		clearVoices.add(R.raw.one_clear);
 		clearVoices.add(R.raw.two_clear);
 		clearVoices.add(R.raw.three_clear);
@@ -39,7 +42,7 @@ public class EinarVoices {
 		clearVoices.add(R.raw.nine_clear);
 		clearVoices.add(R.raw.ten_clear);
 		
-		shortVoices = new ArrayList<Integer>(10);
+		List<Integer> shortVoices = new ArrayList<Integer>(10);
 		shortVoices.add(R.raw.one_short);
 		shortVoices.add(R.raw.two_short);
 		shortVoices.add(R.raw.three_short);
@@ -50,6 +53,13 @@ public class EinarVoices {
 		shortVoices.add(R.raw.eight_short);
 		shortVoices.add(R.raw.nine_short);
 		shortVoices.add(R.raw.ten_short);
+		
+		List<List<Integer>> styles = new ArrayList<List<Integer>>(3);
+		styles.add(longVoices);
+		styles.add(clearVoices);
+		styles.add(shortVoices);
+		
+		return styles;
 	}
 
 	public void play(String voiceIdentifier) {
@@ -70,12 +80,12 @@ public class EinarVoices {
 		try {
 			id = Integer.parseInt(voiceIdentifier);
 			// list starts at 0 while count starts at 1
-			id--;
-			
-			return longVoices.get(id);
+			return voiceStyles.get(currentVoiceStyle).get(id - 1);
 
 		} catch(Exception e) {}
 		
+		// got an error, update voice style
+		currentVoiceStyle = (currentVoiceStyle + 1) % voiceStyles.size();
 		return -1;
 	}
 }

@@ -37,7 +37,6 @@ public class EinarVoicesTest {
 	@Test
 	public void playResourcesAccordingToNumbers() {
 		Object[][] numberResourcesMapping = new Object[][] {
-				new Object[] { "#", R.raw.error },
 				new Object[] { "1", R.raw.one_long },
 				new Object[] { "2", R.raw.two_long },
 				new Object[] { "3", R.raw.three_long },
@@ -74,11 +73,12 @@ public class EinarVoicesTest {
 		
 		for(int i = 0; i < numberResourcesMapping.length; i++) {
 			String number = (String) numberResourcesMapping[i][0];
+			voices.play(number);
+
+			// don't verify if it is an error
 			if("#".equals(number)) {
 				continue;
 			}
-			
-			voices.play(number);
 			verify(mockPlayer).play((Integer) numberResourcesMapping[i][1]);
 		}
 	}
