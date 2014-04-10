@@ -7,10 +7,10 @@ Tasks
 	+ EinarVoices just generates / computes the resource id for each sound
 	+ EinarVoices can stop implementing an interface, it doesn't need a Context in the constructor
 	
-- EinarVoices manages different voices styles
-	- getVoiceResource chooses voices from different lists (long, short, clear, ...)
-	- getVoiceResource changes voice style each time it gets an error
-	- ¿?
++ EinarVoices manages different voices styles
+	+ getVoiceResource chooses voices from different lists (long, short, clear, ...)
+	+ getVoiceResource changes voice style each time it gets an error
+	+ ¿?
 	
 - Manage sounds with SoundPool, or SoundManager, or something like that. Stop managing sounds with MediaPlayer.
 	- I remember there is something to manage a list of sounds
