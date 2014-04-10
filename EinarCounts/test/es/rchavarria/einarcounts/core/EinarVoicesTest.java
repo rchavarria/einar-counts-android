@@ -57,9 +57,23 @@ public class EinarVoicesTest {
 				R.raw.ten_long 
 			};
 
-		for(int i = 0; i < numbers.length; i++) {
-			voices.play(numbers[i]);
-			verify(mockPlayer).play(resources[i]);
+		Object[][] numberResourcesMapping = new Object[][] {
+				new Object[] { "#", R.raw.error },
+				new Object[] { "1", R.raw.one_long },
+				new Object[] { "2", R.raw.two_long },
+				new Object[] { "3", R.raw.three_long },
+				new Object[] { "4", R.raw.four_long },
+				new Object[] { "5", R.raw.five_long },
+				new Object[] { "6", R.raw.six_long },
+				new Object[] { "7", R.raw.seven_long },
+				new Object[] { "8", R.raw.eight_long },
+				new Object[] { "9", R.raw.nine_long },
+				new Object[] { "10", R.raw.ten_long }
+		};
+		
+		for(int i = 0; i < numberResourcesMapping.length; i++) {
+			voices.play((String) numberResourcesMapping[i][0]);
+			verify(mockPlayer).play((Integer) numberResourcesMapping[i][1]);
 		}
 	}
 
