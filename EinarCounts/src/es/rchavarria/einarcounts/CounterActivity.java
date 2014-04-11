@@ -4,9 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import es.rchavarria.einarcounts.core.CachedVoicePlayer;
 import es.rchavarria.einarcounts.core.Counter;
 import es.rchavarria.einarcounts.core.EinarVoices;
-import es.rchavarria.einarcounts.core.SimpleVoicePlayer;
+import es.rchavarria.einarcounts.core.VoicePlayer;
 
 public class CounterActivity extends Activity {
 
@@ -14,7 +15,8 @@ public class CounterActivity extends Activity {
 	
 	private void configureController() {
 		Counter counter = new Counter(10);
-		SimpleVoicePlayer player = new SimpleVoicePlayer(this);
+//		VoicePlayer player = new SimpleVoicePlayer(this);
+		VoicePlayer player = new CachedVoicePlayer(this);
 		EinarVoices voices = new EinarVoices(player);
 		
 		controller = new CounterController(counter, voices);

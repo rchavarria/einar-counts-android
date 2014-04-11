@@ -12,7 +12,7 @@ public class SimpleVoicePlayer implements VoicePlayer {
 	}
 
 	@Override
-	public void play(int voiceResourceId) {
+	public void play(Integer voiceResourceId) {
 		MediaPlayer.create(context, voiceResourceId).start();
 	}
 
