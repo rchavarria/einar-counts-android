@@ -12,9 +12,12 @@ Tasks
 	+ getVoiceResource changes voice style each time it gets an error
 	+ ¿?
 	
-- Manage sounds with SoundPool, or SoundManager, or something like that. Stop managing sounds with MediaPlayer.
-	- I remember there is something to manage a list of sounds
-	- An example can be found: http://www.edumobile.org/android/android-programming-tutorials/sound-pool-example-in-android-development/
-	- 
++ Manage sounds with SoundPool, or SoundManager, or something like that. Stop managing sounds with MediaPlayer.
+	+ I remember there is something to manage a list of sounds
+	+ An example can be found: http://www.edumobile.org/android/android-programming-tutorials/sound-pool-example-in-android-development/
 	
+- Use SparseArray API to avoid Map<Integer, Integer>
+	- Example: http://android.okhelp.cz/sparsearray-instead-hashmap-android-example/
+	- Use: instead of 'new HashMap<Integer, MyType>()', use 'new SparseArray<MyType>()'. Then, use it as a Map. Simple!
+
 - more?
